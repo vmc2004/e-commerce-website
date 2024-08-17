@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('size_id')->constrained();
             $table->integer('quantity');
             $table->string('image', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

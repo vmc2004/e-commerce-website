@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('client.layout')
 @section('title')
     Trang chủ
 @endsection

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('material')->nullable();
             $table->foreignId('category_id')->constrained;
             $table->foreignId('brand_id')->constrained;
+            $table->softDeletes();
             $table->timestamps();
         });
     }

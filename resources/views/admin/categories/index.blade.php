@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Danh sách sản phẩm')
+@section('title', 'Danh sách danh mục')
 @section('body')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Danh sách sản phẩm</h3>
+                                <h3 class="card-title">Danh sách danh mục</h3>
                             </div>
                             @if (session('message'))
                             <div class="alert alert-success">
@@ -40,35 +40,25 @@
                                     <thead>
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Code</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Price</th>
-                                            <th>Sale</th>
-                                            <th>Category</th>
-                                            <th>Brand</th>
                                             <th>
-                                                <a href="{{ route('products.create') }}" class="btn btn-primary">Thêm
+                                                <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm
                                                     mới</a>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($products as $stt => $product)
+                                        @foreach ($categories as $stt => $category)
                                             <tr>
                                                 <td>{{ $stt + 1 }}</td>
-                                                <td>{{ $product->code }}</td>
-                                                <td>{{ $product->name }}</td>
+                                                <td>{{ $category->name }}</td>
                                                 <td>
-                                                    <img src="{{ asset('storage/'. $product->image )}}" width="50" alt="">
+                                                    <img src="{{ asset('storage/'. $category->image )}}" width="50" alt="">
                                                 </td>
-                                                <td>{{ $product->price }}</td>
-                                                <td>{{ $product->sale_price }}</td>
-                                                <td>{{ $product->category->name }}</td>
-                                                <td>{{ $product->brand->name }}</td>
                                                 <td class="d-flex">
-                                                    <a href="{{route('products.edit', $product)}}" class="btn btn-primary mr-1">Edit</a>
-                                                    <form action="{{route('products.destroy', $product)}}" method="post">
+                                                    <a href="{{route('categories.edit', $category)}}" class="btn btn-primary mr-1">Edit</a>
+                                                    <form action="{{route('categories.destroy', $category)}}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa chứ ?')">Delete</button>
@@ -80,13 +70,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>#ID</th>
-                                            <th>Code</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Price</th>
-                                            <th>Sale</th>
-                                            <th>Category</th>
-                                            <th>Brand</th>
                                             <th></th>
                                         </tr>
                                     </tfoot>
@@ -94,8 +79,7 @@
 
 
                             </div>
-                            <!-- /.card-body -->
-                            {{ $products->links() }}
+                            {{ $categories->links() }}
                         </div>
                         <!-- /.card -->
                     </div>

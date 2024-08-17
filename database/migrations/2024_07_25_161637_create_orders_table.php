@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('payment', 100);
             $table->double('total_money', 10, 2);
             $table->string('status', 100);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

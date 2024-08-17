@@ -31,15 +31,15 @@ class DatabaseSeeder extends Seeder
         Color::query()->create(['name'=>'Đỏ']);
         Color::query()->create(['name'=>'Tím']);
 
-        for($i=0;$i<100; $i++){
-            ProductVariant::query()->create([
-                'product_id'=>rand(1,100),
-                'color_id'=> rand(1,3),
-                'size_id'=> rand(1,3),
-                'quantity'=> rand(1,1000),
-                'image'=> 'https://media.canifa.com/Simiconnector/SP-moi_Nam-19.04a.webp',
+        // for($i=0;$i<100; $i++){
+        //     ProductVariant::query()->create([
+        //         'product_id'=>rand(1,100),
+        //         'color_id'=> rand(1,3),
+        //         'size_id'=> rand(1,3),
+        //         'quantity'=> rand(1,1000),
+        //         'image'=> 'https://media.canifa.com/Simiconnector/SP-moi_Nam-19.04a.webp',
                 
-            ]);
-        }
+        //     ]);
+        // }
     }
 }

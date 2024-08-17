@@ -33,7 +33,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
 
-                         <form action="" method="Post" enctype="multipart/form-data">
+                         <form action="{{route('products.update', $product)}}" method="Post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

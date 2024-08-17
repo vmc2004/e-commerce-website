@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->double('unit_price', 10, 2);
             $table->primary(['order_id','variant_id']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
