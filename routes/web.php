@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/shop', function () {
-    return view('client.shop');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+Route::get('/detail-product/{product}', [HomeController::class, 'detailproduct'])->name('detail-product');
 
 Auth::routes();
 
