@@ -38,11 +38,6 @@ class HomeController extends Controller
         $sizes = Size::all();
         return view('client.shop', compact('categories', 'products', 'brands', 'sizes'));
     }
-    public function cart(){
-        return view('client.cart');
-    }
-    public function detailproduct(Product $product){
-        $variants = ProductVariant::where($product);
-        return view('client.detail-product', compact('product', 'variants'));
-    }
+
+   
 }

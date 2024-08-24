@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
-Route::get('/detail-product/{product}', [HomeController::class, 'detailproduct'])->name('detail-product');
-
+Route::get('/', [HomeController::class, 'index'])->name('page.home');
+Route::get('/shop', [HomeController::class, 'shop'])->name('page.shop');
+Route::get('/cart', [CartController::class, 'index'])->name('page.cart');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('page.home');
+Route::post('/addtocart', [CartController::class, 'addToCart'])->name('page.addToCart');
+Route::get('/category/{category}', [ProductController::class, 'list'])->name('page.category.list');
+Route::get('product/{slug}', [ProductController::class, 'detail'])->name('page.detail-product');

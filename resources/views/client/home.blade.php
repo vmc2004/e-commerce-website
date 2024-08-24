@@ -124,7 +124,7 @@
 
                         <div class="product__item__text">
                             <h6>{{$product->name}}</h6>
-                            <a href="{{route('detail-product', $product)}}">View Detail </a>
+                            <a href="{{route('page.detail-product', $product->slug)}}">View Detail </a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -132,7 +132,16 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>${{$product->price}}</h5>
+                            <h5>
+                                @if($product->sale_price > 0){
+                                    <b>{{$product->sale_price}}</b>$
+                                    <br>
+                                  <del>  {{$product->price}}</del> $
+                                }
+                                @else
+                                {{$product->price}} $
+                                @endif
+                            </h5>
                             <div class="product__color__select">
                                 <label for="pc-4">
                                     <input type="radio" id="pc-4">
